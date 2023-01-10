@@ -773,6 +773,10 @@ u::after {
     display: none;
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
   .hamburger {
     display: block;
   }

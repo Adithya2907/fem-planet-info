@@ -94,11 +94,11 @@
       </div>
       <hr class="text-white-dull" />
       <div class="container tab hidden">
-        <div class="grid grid--3-cols" style="--active-color: var(--clr-venus)">
+        <nav id="tab-nav" class="grid grid--3-cols" style="--active-color: var(--clr-venus)">
           <a class="active py-5 uppercase text-50" href="#">Overview</a>
           <a class="py-5 uppercase text-50" href="#">Structure</a>
           <a class="py-5 uppercase text-50" href="#">Surface</a>
-        </div>
+        </nav>
       </div>
       <hr class="text-white-dull" />
     </header>
@@ -106,7 +106,7 @@
       <section class="planet" id="venus">
         <div class="container planet-info-area">
           <div class="grid grid--2-cols md-mt-16 mt-32 md-mb-7 mb-22" style="--column-gap: 5rem">
-            <img class="align-self-center justify-self-center row-span-2" src="./public/assets/planet-venus.svg" alt="venus" />
+            <img id="hero-image" class="align-self-center justify-self-center row-span-2" src="./public/assets/planet-venus.svg" alt="venus" />
             <div class="static-text">
               <h1 class="heading-primary mb-6">venus</h1>
               <p class="mb-6">Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. As the brightest natural object in Earth's night sky after the Moon, Venus can cast shadows and can be, on rare occasions, visible to the naked eye in broad daylight.</p>
@@ -143,8 +143,51 @@
     <script>
       let closed = true;
 
+      const tabNav = document.getElementById('tab-nav');
+      const planetNav = document.getElementById('planet-nav');
+      const heroImage = document.getElementById('hero-image');
       const hamburgerElement = document.getElementById('hamburger');
       const slidingNav = document.getElementById('sliding-nav');
+
+      let currentLinkSelected = 0;
+
+      const links = planetNav.children;
+      const tabs = tabNav.children;
+
+      function newLinkClicked(i) {
+        tabs[i].classList.add('active');
+        links[i].classList.add('active');
+        links[i].classList.add('bg-venus');
+        tabs[currentLinkSelected].classList.remove('active');
+        links[currentLinkSelected].classList.remove('active');
+        links[currentLinkSelected].classList.remove('bg-venus');
+
+        currentLinkSelected = i;
+
+        switch (i) {
+          case 0:
+            heroImage.src = './public/assets/planet-venus.svg';
+            break;
+          case 1:
+            heroImage.src = './public/assets/planet-venus-internal.svg';
+            break;
+          case 2:
+            heroImage.src = './public/assets/planet-venus-internal.svg';
+            break;
+        }
+      }
+
+      for (let i = 0; i < 3; i++) {
+        tabs[i].addEventListener('click', function () {
+          if (currentLinkSelected === i) return;
+          newLinkClicked(i);
+        });
+
+        links[i].addEventListener('click', function () {
+          if (currentLinkSelected === i) return;
+          newLinkClicked(i);
+        });
+      }
 
       hamburgerElement.addEventListener('click', function () {
         if (closed) {

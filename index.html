@@ -94,11 +94,11 @@
       </div>
       <hr class="text-white-dull" />
       <div class="container tab hidden">
-        <div class="grid grid--3-cols" style="--active-color: var(--clr-mercury)">
+        <nav id="tab-nav" class="grid grid--3-cols" style="--active-color: var(--clr-mercury)">
           <a class="active py-5 uppercase text-50" href="#">Overview</a>
           <a class="py-5 uppercase text-50" href="#">Structure</a>
           <a class="py-5 uppercase text-50" href="#">Surface</a>
-        </div>
+        </nav>
       </div>
       <hr class="text-white-dull" />
     </header>
@@ -113,9 +113,9 @@
               <a class="source" href="https://en.wikipedia.org/wiki/Mercury_(planet)" target="_blank" class="external opacity-50 mb-10">Source : <u>Wikipedia</u></a>
             </div>
             <nav id="planet-nav">
-              <a data-index="1" href="#" class="button active bg-mercury mb-4"><span class="index">01</span>Overview</a>
-              <a data-index="2" href="#" class="button mb-4"><span class="index">02</span>Internal Structure</a>
-              <a data-index="3" href="#" class="button mb-4"><span class="index">03</span>Surface Geology</a>
+              <a href="#" class="button active bg-mercury mb-4"><span class="index">01</span>Overview</a>
+              <a href="#" class="button mb-4"><span class="index">02</span>Internal Structure</a>
+              <a href="#" class="button mb-4"><span class="index">03</span>Surface Geology</a>
             </nav>
           </div>
           <div class="planet-extra-info grid grid--4-cols mb-6">
@@ -142,6 +142,7 @@
     <script>
       let closed = true;
 
+      const tabNav = document.getElementById('tab-nav');
       const planetNav = document.getElementById('planet-nav');
       const heroImage = document.getElementById('hero-image');
       const hamburgerElement = document.getElementById('hamburger');
@@ -150,30 +151,40 @@
       let currentLinkSelected = 0;
 
       const links = planetNav.children;
+      const tabs = tabNav.children;
+
+      function newLinkClicked(i) {
+        tabs[i].classList.add('active');
+        links[i].classList.add('active');
+        links[i].classList.add('bg-mercury');
+        tabs[currentLinkSelected].classList.remove('active');
+        links[currentLinkSelected].classList.remove('active');
+        links[currentLinkSelected].classList.remove('bg-mercury');
+
+        currentLinkSelected = i;
+
+        switch (i) {
+          case 0:
+            heroImage.src = './public/assets/planet-mercury.svg';
+            break;
+          case 1:
+            heroImage.src = './public/assets/planet-mercury-internal.svg';
+            break;
+          case 2:
+            heroImage.src = './public/assets/planet-mercury-internal.svg';
+            break;
+        }
+      }
 
       for (let i = 0; i < 3; i++) {
+        tabs[i].addEventListener('click', function () {
+          if (currentLinkSelected === i) return;
+          newLinkClicked(i);
+        });
+
         links[i].addEventListener('click', function () {
           if (currentLinkSelected === i) return;
-          links[i].classList.add('active');
-          links[i].classList.add('bg-mercury');
-          links[currentLinkSelected].classList.remove('active');
-          links[currentLinkSelected].classList.remove('bg-mercury');
-          currentLinkSelected = i;
-          console.log(currentLinkSelected);
-          switch (i) {
-            case 0:
-              heroImage.src = './public/assets/planet-mercury.svg';
-              break;
-            case 1:
-              heroImage.src = './public/assets/planet-mercury-internal.svg';
-              break;
-            case 2:
-              heroImage.src = './public/assets/planet-mercury-internal.svg';
-              break;
-          }
-          // switch(links[i].attributes.getNamedItem('data-index'))
-
-          // console.log(links[i].attributes.getNamedItem('data-index'));
+          newLinkClicked(i);
         });
       }
 

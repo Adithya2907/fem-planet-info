@@ -94,18 +94,18 @@
       </div>
       <hr class="text-white-dull" />
       <div class="container tab hidden">
-        <div class="grid grid--3-cols" style="--active-color: var(--clr-earth)">
+        <nav id="tab-nav" class="grid grid--3-cols" style="--active-color: var(--clr-earth)">
           <a class="active py-5 uppercase text-50" href="#">Overview</a>
           <a class="py-5 uppercase text-50" href="#">Structure</a>
           <a class="py-5 uppercase text-50" href="#">Surface</a>
-        </div>
+        </nav>
       </div>
     </header>
     <main>
       <section class="planet" id="earth">
         <div class="container planet-info-area">
           <div class="grid grid--2-cols md-mt-16 mt-32 md-mb-7 mb-22" style="--column-gap: 5rem">
-            <img class="align-self-center justify-self-center row-span-2" src="./public/assets/planet-earth.svg" alt="earth" />
+            <img id="hero-image" class="align-self-center justify-self-center row-span-2" src="./public/assets/planet-earth.svg" alt="earth" />
             <div class="static-text">
               <h1 class="heading-primary mb-6">earth</h1>
               <p class="mb-6">Third planet from the Sun and the only known planet to harbor life. About 29.2% of Earth's surface is land with remaining 70.8% is covered with water. Earth's distance from the Sun, physical properties and geological history have allowed life to evolve and thrive.</p>
@@ -142,8 +142,51 @@
     <script>
       let closed = true;
 
+      const tabNav = document.getElementById('tab-nav');
+      const planetNav = document.getElementById('planet-nav');
+      const heroImage = document.getElementById('hero-image');
       const hamburgerElement = document.getElementById('hamburger');
       const slidingNav = document.getElementById('sliding-nav');
+
+      let currentLinkSelected = 0;
+
+      const links = planetNav.children;
+      const tabs = tabNav.children;
+
+      function newLinkClicked(i) {
+        tabs[i].classList.add('active');
+        links[i].classList.add('active');
+        links[i].classList.add('bg-earth');
+        tabs[currentLinkSelected].classList.remove('active');
+        links[currentLinkSelected].classList.remove('active');
+        links[currentLinkSelected].classList.remove('bg-earth');
+
+        currentLinkSelected = i;
+
+        switch (i) {
+          case 0:
+            heroImage.src = './public/assets/planet-earth.svg';
+            break;
+          case 1:
+            heroImage.src = './public/assets/planet-earth-internal.svg';
+            break;
+          case 2:
+            heroImage.src = './public/assets/planet-earth-internal.svg';
+            break;
+        }
+      }
+
+      for (let i = 0; i < 3; i++) {
+        tabs[i].addEventListener('click', function () {
+          if (currentLinkSelected === i) return;
+          newLinkClicked(i);
+        });
+
+        links[i].addEventListener('click', function () {
+          if (currentLinkSelected === i) return;
+          newLinkClicked(i);
+        });
+      }
 
       hamburgerElement.addEventListener('click', function () {
         if (closed) {
