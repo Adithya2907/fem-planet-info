@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/assets/favicon-32x32.png" />
+    <link rel="stylesheet" href="./public/styles.css" />
+    <title>Frontend Mentor | Planets fact site</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="flex mx-8 mb-5">
+        <p class="uppercase text-500 font-antonio leading-tight line-height-1 pt-4">the planets</p>
+        <nav id="main-nav">
+          <ul class="main-nav-list flex" style="--gap: 2rem" role="list">
+            <li class="main-nav-list-item uppercase" style="--active-color: var(--clr-mercury)"><a href="./index.html">Mercury</a></li>
+            <li class="main-nav-list-item uppercase active" style="--active-color: var(--clr-venus)"><a href="./venus.html">Venus</a></li>
+            <li class="main-nav-list-item uppercase" style="--active-color: var(--clr-earth)"><a href="./earth.html">Earth</a></li>
+            <li class="main-nav-list-item uppercase" style="--active-color: var(--clr-mars)"><a href="./mars.html">Mars</a></li>
+            <li class="main-nav-list-item uppercase" style="--active-color: var(--clr-jupiter)"><a href="./jupiter.html">Jupiter</a></li>
+            <li class="main-nav-list-item uppercase" style="--active-color: var(--clr-saturn)"><a href="./saturn.html">Saturn</a></li>
+            <li class="main-nav-list-item uppercase" style="--active-color: var(--clr-uranus)"><a href="./uranus.html">Uranus</a></li>
+            <li class="main-nav-list-item uppercase" style="--active-color: var(--clr-neptune)"><a href="./neptune.html">Neptune</a></li>
+          </ul>
+        </nav>
+        <div class="hamburger closed" id="hamburger">
+          <img src="./public/assets/icon-hamburger.svg" alt="navigation-menu" />
+          <nav id="sliding-nav" class="closed">
+            <ul class="sliding-nav-list">
+              <li class="sliding-nav-list-item">
+                <a href="./index.html">
+                  <img type="planet" src="./public/assets/planet-mercury.svg" alt="mercury" />
+                  <p>Mercury</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+              <li class="sliding-nav-list-item">
+                <a href="./venus.html">
+                  <img type="planet" src="./public/assets/planet-venus.svg" alt="venus" />
+                  <p>Venus</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+              <li class="sliding-nav-list-item">
+                <a href="./earth.html">
+                  <img type="planet" src="./public/assets/planet-earth.svg" alt="earth" />
+                  <p>Earth</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+              <li class="sliding-nav-list-item">
+                <a href="./mars.html">
+                  <img type="planet" src="./public/assets/planet-mars.svg" alt="mars" />
+                  <p>Mars</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+              <li class="sliding-nav-list-item">
+                <a href="./jupiter.html">
+                  <img type="planet" src="./public/assets/planet-jupiter.svg" alt="jupiter" />
+                  <p>Jupiter</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+              <li class="sliding-nav-list-item">
+                <a href="./saturn.html">
+                  <img type="planet" src="./public/assets/planet-saturn.svg" alt="saturn" />
+                  <p>Saturn</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+              <li class="sliding-nav-list-item">
+                <a href="./uranus.html">
+                  <img type="planet" src="./public/assets/planet-uranus.svg" alt="uranus" />
+                  <p>Uranus</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+              <li class="sliding-nav-list-item">
+                <a href="./neptune.html">
+                  <img type="planet" src="./public/assets/planet-neptune.svg" alt="neptune" />
+                  <p>Neptune</p>
+                  <img src="./public/assets/icon-chevron.svg" alt="arrow" />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <hr class="text-white-dull" />
+      <div class="container tab hidden">
+        <div class="grid grid--3-cols" style="--active-color: var(--clr-venus)">
+          <a class="active py-5 uppercase text-50" href="#">Overview</a>
+          <a class="py-5 uppercase text-50" href="#">Structure</a>
+          <a class="py-5 uppercase text-50" href="#">Surface</a>
+        </div>
+      </div>
+      <hr class="text-white-dull" />
+    </header>
+    <main>
+      <section class="planet" id="venus">
+        <div class="container planet-info-area">
+          <div class="grid grid--2-cols md-mt-16 mt-32 md-mb-7 mb-22" style="--column-gap: 5rem">
+            <img class="align-self-center justify-self-center row-span-2" src="./public/assets/planet-venus.svg" alt="venus" />
+            <div class="static-text">
+              <h1 class="heading-primary mb-6">venus</h1>
+              <p class="mb-6">Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. As the brightest natural object in Earth's night sky after the Moon, Venus can cast shadows and can be, on rare occasions, visible to the naked eye in broad daylight.</p>
+              <a class="source" href="https://en.wikipedia.org/wiki/venus" target="_blank" class="external opacity-50 mb-10">Source : <u>Wikipedia</u></a>
+            </div>
+            <nav id="planet-nav">
+              <a href="#" class="button active bg-venus mb-4"><span class="index">01</span>Overview</a>
+              <a href="#" class="button mb-4"><span class="index">02</span>Internal Structure</a>
+              <a href="#" class="button mb-4"><span class="index">03</span>Surface Geology</a>
+            </nav>
+          </div>
+          <div class="planet-extra-info grid grid--4-cols mb-6">
+            <div class="item border-1-white">
+              <p class="text-xs">ROTATION TIME</p>
+              <h2 class="heading-secondary">243 days</h2>
+            </div>
+            <div class="item border-1-white">
+              <p class="text-xs">REVOLUTION TIME</p>
+              <h2 class="heading-secondary">224.7 days</h2>
+            </div>
+            <div class="item border-1-white">
+              <p class="text-xs">radius</p>
+              <h2 class="heading-secondary">6,051.8 km</h2>
+            </div>
+            <div class="item border-1-white">
+              <p class="text-xs">AVERAGE TEMP.</p>
+              <h2 class="heading-secondary">471°c</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let closed = true;
+
+      const hamburgerElement = document.getElementById('hamburger');
+      const slidingNav = document.getElementById('sliding-nav');
+
+      hamburgerElement.addEventListener('click', function () {
+        if (closed) {
+          slidingNav.classList.remove('closed');
+          hamburgerElement.classList.remove('closed');
+        } else {
+          slidingNav.classList.add('closed');
+          hamburgerElement.classList.add('closed');
+        }
+
+        closed = !closed;
+      });
+    </script>
+  </body>
+</html>
