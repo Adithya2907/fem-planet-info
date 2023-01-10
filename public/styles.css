@@ -579,7 +579,7 @@ body {
   color: var(--clr-white);
   font-size: 0.875rem;
   line-height: 1.79;
-  background-image: url('./assets/background-stars.svg');
+  background-image: url('/assets/background-stars.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
