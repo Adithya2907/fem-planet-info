@@ -876,7 +876,7 @@ u::after {
   }
 
   .geology {
-    top: calc(50% - 30px);
+    top: calc(50% - 40px);
     left: 50%;
     width: 80px;
   }
