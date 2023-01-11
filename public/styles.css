@@ -784,6 +784,7 @@ u::after {
     display: none;
   }
 
+  html,
   body {
     overflow-x: hidden;
   }
