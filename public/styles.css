@@ -569,6 +569,12 @@ h6 {
   margin-right: 1.5rem;
 }
 
+/* Visibility */
+
+.hidden {
+  display: none;
+}
+
 /*******************/
 /* STYLES          */
 /*******************/
@@ -618,14 +624,6 @@ hr {
   height: 1px;
 }
 
-.geology {
-  width: 160px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -20%);
-}
-
 /* Planet Info */
 
 u::after {
@@ -640,9 +638,20 @@ u::after {
   padding: 1.25rem 0 1.6875rem 1.5rem;
 }
 
-.planet-info-area img {
+.planet-info-area img:first-child {
   grid-row: span 2 !important;
   max-width: 100%;
+}
+
+.planet .grid:first-child {
+  position: relative;
+}
+
+.geology {
+  width: 160px;
+  position: absolute;
+  top: 75%;
+  left: calc(15%);
 }
 
 @media (max-width: 63em) {
@@ -696,7 +705,7 @@ u::after {
     grid-template-rows: 400px auto;
   }
 
-  .planet-info-area img {
+  .planet-info-area img:first-child {
     grid-column: span 2 !important;
     height: 80%;
   }
@@ -707,8 +716,10 @@ u::after {
   }
 
   .geology {
-    top: 0;
-    transform: translate(-50%, 100%);
+    top: 50%;
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 140px;
   }
 
   .source {
@@ -730,7 +741,7 @@ u::after {
     font-size: var(--fs-420) !important;
   }
 
-  .planet-info-area img {
+  .planet-info-area img:first-child {
     grid-row: span 1;
     height: 100%;
   }
@@ -749,7 +760,7 @@ u::after {
     display: none;
   }
 
-  .planet-info-area img {
+  .planet-info-area img:first-child {
     grid-column: span 2 !important;
     height: 50%;
   }
@@ -861,5 +872,11 @@ u::after {
   .tab .active {
     opacity: 1;
     border-bottom: 4px solid var(--active-color);
+  }
+
+  .geology {
+    top: calc(50% - 30px);
+    left: 50%;
+    width: 80px;
   }
 }

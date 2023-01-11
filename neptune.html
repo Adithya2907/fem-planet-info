@@ -107,6 +107,7 @@
         <div class="container planet-info-area">
           <div class="grid grid--2-cols md-mt-16 mt-32 md-mb-7 mb-22" style="--column-gap: 5rem">
             <img id="hero-image" class="align-self-center justify-self-center row-span-2" src="/assets/planet-neptune.svg" alt="neptune" />
+            <img id="geology" class="hidden geology" src="/assets/geology-neptune.png" alt="geology" />
             <div class="static-text">
               <h1 class="heading-primary mb-6">neptune</h1>
               <p class="mb-6">Neptune is the eighth and farthest-known Solar planet from the Sun. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. It is 17 times the mass of Earth, more massive than its near-twin Uranus.</p>
@@ -148,6 +149,7 @@
       const heroImage = document.getElementById('hero-image');
       const hamburgerElement = document.getElementById('hamburger');
       const slidingNav = document.getElementById('sliding-nav');
+      const geologyImage = document.getElementById('geology');
 
       let currentLinkSelected = 0;
 
@@ -167,12 +169,15 @@
         switch (i) {
           case 0:
             heroImage.src = '/assets/planet-neptune.svg';
+            geologyImage.classList.add('hidden');
             break;
           case 1:
             heroImage.src = '/assets/planet-neptune-internal.svg';
+            geologyImage.classList.add('hidden');
             break;
           case 2:
-            heroImage.src = '/assets/planet-neptune-internal.svg';
+            heroImage.src = '/assets/planet-neptune.svg';
+            geologyImage.classList.remove('hidden');
             break;
         }
       }

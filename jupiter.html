@@ -107,6 +107,7 @@
         <div class="container planet-info-area">
           <div class="grid grid--2-cols md-mt-16 mt-32 md-mb-7 mb-22" style="--column-gap: 5rem">
             <img id="hero-image" class="align-self-center justify-self-center row-span-2" src="/assets/planet-jupiter.svg" alt="jupiter" />
+            <img class="hidden geology" id="geology" src="/assets/geology-jupiter.png" alt="geology" />
             <div class="static-text">
               <h1 class="heading-primary mb-6">jupiter</h1>
               <p class="mb-6">Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass two and a half times that of all the other planets in the Solar System combined, but less than one-thousandth the mass of the Sun.</p>
@@ -148,6 +149,7 @@
       const heroImage = document.getElementById('hero-image');
       const hamburgerElement = document.getElementById('hamburger');
       const slidingNav = document.getElementById('sliding-nav');
+      const geologyImage = document.getElementById('geology');
 
       let currentLinkSelected = 0;
 
@@ -167,12 +169,15 @@
         switch (i) {
           case 0:
             heroImage.src = '/assets/planet-jupiter.svg';
+            geologyImage.classList.add('hidden');
             break;
           case 1:
             heroImage.src = '/assets/planet-jupiter-internal.svg';
+            geologyImage.classList.add('hidden');
             break;
           case 2:
-            heroImage.src = '/assets/planet-jupiter-internal.svg';
+            heroImage.src = '/assets/planet-jupiter.svg';
+            geologyImage.classList.remove('hidden');
             break;
         }
       }

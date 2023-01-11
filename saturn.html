@@ -107,6 +107,7 @@
         <div class="container planet-info-area">
           <div class="grid grid--2-cols md-mt-8 mt-32 md-mb-7 mb-22" style="--column-gap: 5rem">
             <img id="hero-image" class="align-self-center justify-self-center row-span-2" src="/assets/planet-saturn.svg" alt="saturn" />
+            <img id="geology" class="hidden geology" src="/assets/geology-saturn.png" alt="geology" />
             <div class="static-text">
               <h1 class="heading-primary mb-6">saturn</h1>
               <p class="mb-6">Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine and a half times that of Earth. It only has one-eighth the average density of Earth.</p>
@@ -147,6 +148,7 @@
       const heroImage = document.getElementById('hero-image');
       const hamburgerElement = document.getElementById('hamburger');
       const slidingNav = document.getElementById('sliding-nav');
+      const geologyImage = document.getElementById('geology');
 
       let currentLinkSelected = 0;
 
@@ -166,12 +168,15 @@
         switch (i) {
           case 0:
             heroImage.src = '/assets/planet-saturn.svg';
+            geologyImage.classList.add('hidden');
             break;
           case 1:
             heroImage.src = '/assets/planet-saturn-internal.svg';
+            geologyImage.classList.add('hidden');
             break;
           case 2:
-            heroImage.src = '/assets/planet-saturn-internal.svg';
+            heroImage.src = '/assets/planet-saturn.svg';
+            geologyImage.classList.remove('hidden');
             break;
         }
       }
